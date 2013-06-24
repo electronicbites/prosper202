@@ -97,6 +97,11 @@ if (is_numeric($mysql['click_id'])) {
 			, click_payout='".$mysql['click_payout']."'
 		";
 	}
+  if ($_GET['ordnr']) {
+    $click_sql .= "
+      , orderid='".$_GET['ordnr']."'
+    ";
+  }
 	$click_sql .= "
 		WHERE
 			click_id='".$mysql['click_id']."'
