@@ -1,0 +1,5 @@
+Options +FollowSymLinks
+
+RewriteEngine on
+
+RewriteRule .* /202-404.php [L]
