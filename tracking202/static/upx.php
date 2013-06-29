@@ -93,9 +93,22 @@ if (is_numeric($mysql['click_id'])) {
 			click_filtered='0'
 	";
 	if ($mysql['use_pixel_payout']==1) {
-		$click_sql .= "
-			, click_payout='".$mysql['click_payout']."'
-		";
+		
+		if (strlen($_GET['currency'] > 0) {
+			$click_sql .= "
+				, click_payout_currency='".$mysql['click_payout']."'
+			";
+			$click_sql .= "
+				, currency='".$_GET['currency']"'
+			";
+			$click_sql .= "
+				, click_payout='".0."'
+			";
+		} else {
+			$click_sql .= "
+				, click_payout='".$mysql['click_payout']."'
+			";
+		}
 	}
   if ($_GET['ordnr']) {
     $click_sql .= "
