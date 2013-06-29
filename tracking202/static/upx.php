@@ -94,16 +94,13 @@ if (is_numeric($mysql['click_id'])) {
 	";
 	if ($mysql['use_pixel_payout']==1) {
 		
-		if (strlen($_GET['currency'] > 0) {
+		if (strlen($_GET['currency'] > 0)) {
 			$click_sql .= "
 				, click_payout_currency='".$mysql['click_payout']."'
 			";
 			$click_sql .= "
-				, currency='".$_GET['currency']"'
-			";
-			$click_sql .= "
-				, click_payout='".0."'
-			";
+      	, currency='".$_GET['currency']."'
+	    	, click_payout='0' ";
 		} else {
 			$click_sql .= "
 				, click_payout='".$mysql['click_payout']."'
