@@ -93,8 +93,7 @@ if (is_numeric($mysql['click_id'])) {
 			click_filtered='0'
 	";
 	if ($mysql['use_pixel_payout']==1) {
-		
-		if (strlen($_GET['currency'] > 0)) {
+		if (strlen($_GET['currency'])) {
 			$click_sql .= "
 				, click_payout_currency='".$mysql['click_payout']."'
 			";
@@ -116,6 +115,8 @@ if (is_numeric($mysql['click_id'])) {
 		WHERE
 			click_id='".$mysql['click_id']."'
 	";
+
+//	echo $click_sql;
 	delay_sql($click_sql);
 
 	$click_sql = "
